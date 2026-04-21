@@ -17,6 +17,7 @@
       "editor.cursorBlinking" = "smooth";
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = 1000;
+      "git.autofetch" = true;
     };
   };
 }
