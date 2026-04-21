@@ -6,7 +6,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.wireless.iwd.enable = true;
+  #networking.wireless.iwd.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
 
   # Firewall configuration (currently unused, but available for extension)
