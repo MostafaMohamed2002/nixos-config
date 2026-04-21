@@ -30,6 +30,9 @@
       duh = "du -h";
       freeh = "free -h";
       top10 = "ps aux --sort=-%mem | head -n 11";
+
+      code = "codium";
+      config = "cd /home/mostafa/nixos-config/ && code .";
     };
     bashrcExtra = ''
       export EDITOR=nvim
