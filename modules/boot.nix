@@ -1,7 +1,5 @@
 # Bootloader, kernel packages, and hardware power management
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -9,7 +7,7 @@
   boot.kernelPackages = pkgs.linuxPackages;
 
   # Set default memory sleep state to s2idle
-  boot.kernelParams = [ "mem_sleep_default=s2idle" ];
+  boot.kernelParams = ["mem_sleep_default=s2idle"];
 
   # Enable experimental NVIDIA power management
   hardware.nvidia.powerManagement.enable = true;

@@ -1,7 +1,5 @@
 # Home Manager module imports (mostafa)
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./base.nix
     ./git.nix

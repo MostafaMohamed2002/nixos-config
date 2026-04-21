@@ -659,7 +659,6 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       ensure_installed = vim.tbl_filter(function(tool) return tool ~= 'nixd' end, ensure_installed)
       vim.list_extend(ensure_installed, {
-        'nixpkgs-fmt',
         -- You can add other tools here that you want Mason to install
       })
 
@@ -707,7 +706,7 @@ require('lazy').setup({
       },
       -- You can also specify external formatters in here.
       formatters_by_ft = {
-        nix = { 'nixpkgs_fmt' },
+        nix = { 'alejandra' },
         -- rust = { 'rustfmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },

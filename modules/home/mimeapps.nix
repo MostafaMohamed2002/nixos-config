@@ -1,7 +1,5 @@
 # Default app associations
-{ ... }:
-
-{
+{...}: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {

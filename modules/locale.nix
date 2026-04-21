@@ -1,7 +1,5 @@
 # Timezone, locale, and keyboard layout configuration
-{ ... }:
-
-{
+{...}: {
   # Set your time zone
   time.timeZone = "Africa/Cairo";
 

@@ -1,8 +1,6 @@
 # User-level packages (empty for now)
-{ pkgs, ... }:
-
-{
-  home.packages = with pkgs;[ 
+{pkgs, ...}: {
+  home.packages = with pkgs; [
     nixd
     nixfmt-rfc-style
     gcc
@@ -12,7 +10,6 @@
     cmake
     unzip
     tree
-    
 
     opencode
     ghostty

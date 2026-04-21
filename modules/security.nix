@@ -1,7 +1,5 @@
 # Security settings: sudo, SSH, nix experimental features, and allowed users
-{ ... }:
-
-{
+{...}: {
   # Sudo configuration
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;

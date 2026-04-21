@@ -1,7 +1,5 @@
 # Main NixOS configuration - pure imports list
-{ ... }:
-
-{
+{...}: {
   imports = [
     # Hardware scan results
     ./hardware-configuration.nix

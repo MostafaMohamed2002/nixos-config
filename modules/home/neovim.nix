@@ -1,7 +1,5 @@
 # Neovim configuration
-{ ... }:
-
-{
+{...}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;

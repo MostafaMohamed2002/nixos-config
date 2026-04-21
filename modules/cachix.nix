@@ -1,7 +1,5 @@
 # Cachix binary cache configuration for faster rebuilds
-{ ... }:
-
-{
+{...}: {
   nix.settings.substituters = [
     "https://cache.nixos.org"
     "https://nix-community.cachix.org"

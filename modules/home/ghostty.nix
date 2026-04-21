@@ -1,7 +1,5 @@
 # Ghostty configuration via Home Manager module
-{ ... }:
-
-{
+{...}: {
   programs.ghostty = {
     enable = true;
     settings = {
