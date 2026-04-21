@@ -16,5 +16,6 @@
 
     opencode
     ghostty
+    jetbrains.rider
   ];
 }

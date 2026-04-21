@@ -15,5 +15,7 @@
     vim
     git
     gh
+    nixd
+    nixpkgs-fmt
   ];
 }

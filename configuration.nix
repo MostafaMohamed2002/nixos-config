@@ -15,6 +15,7 @@
     ./modules/security.nix
     ./modules/cachix.nix
     ./modules/fonts.nix
+    ./modules/nix-ld-dotnet.nix
   ];
 
   # This value determines the NixOS release from which the default
