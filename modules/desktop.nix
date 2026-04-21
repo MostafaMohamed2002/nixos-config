@@ -7,7 +7,7 @@
 
   # Enable the GNOME Desktop Environment
   services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
+  services.displayManager.ly.enable = true;
 
   # Enable CUPS to print documents
   services.printing.enable = true;
