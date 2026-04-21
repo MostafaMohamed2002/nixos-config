@@ -13,14 +13,7 @@
     ntfs3g # File system driver - system-wide need
     # Development and utilities
     vim
-    tree
-    opencode
     git
-    htop
     gh
-    # Terminal and shell
-    ghostty
-    # GNOME customization
-    gnome-tweaks
   ];
 }
