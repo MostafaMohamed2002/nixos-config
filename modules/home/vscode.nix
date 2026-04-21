@@ -6,7 +6,7 @@
     enable = true;
     package = pkgs.vscodium;
     profiles.default.userSettings = {
-      "workbench.colorTheme" = "Default Dark Modern";
+      "workbench.colorTheme" = "Default Light Modern";
       "editor.fontFamily" = "Maple Mono NF";
       "editor.fontSize" = 13;
       "editor.lineHeight" = 22;
@@ -18,6 +18,15 @@
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = 1000;
       "git.autofetch" = true;
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nixd"; # Points to the nixd binary in your path
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = [ "nixfmt" ]; # Optional: requires pkgs.nixfmt-rfc-style
+          };
+        };
+      };
     };
   };
 }
