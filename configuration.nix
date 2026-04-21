@@ -118,7 +118,7 @@
     git
     neovim
     htop
-
+    gh
     # Terminal and shell
     ghostty
 
