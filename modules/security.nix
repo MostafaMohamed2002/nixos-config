@@ -2,9 +2,9 @@
 { ... }:
 
 {
-  # Passwordless sudo for wheel group
+  # Sudo configuration
   security.sudo.enable = true;
-  security.sudo.wheelNeedsPassword = false;
+  security.sudo.wheelNeedsPassword = true;
 
   # Nix experimental features
   nix.settings.experimental-features = [

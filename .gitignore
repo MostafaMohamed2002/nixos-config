@@ -1,1 +1,19 @@
 secrets/
+
+# Nix build outputs
+result
+result-*
+
+# Development environment
+.direnv/
+.envrc
+
+# Editor/IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.Thumbs.db

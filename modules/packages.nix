@@ -16,7 +16,6 @@
     tree
     opencode
     git
-    neovim
     htop
     gh
     # Terminal and shell

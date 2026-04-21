@@ -7,9 +7,6 @@
   home.homeDirectory = "/home/mostafa";
   home.stateVersion = "25.11";
 
-  # Disable nixpkgs version check (HM 26.05 with Nixpkgs 25.11)
-  home.enableNixpkgsReleaseCheck = false;
-
   # === GIT ===
   programs.git = {
     enable = true;
@@ -24,12 +21,15 @@
   };
 
   # === NEOVIM / VIM ===
-  # Basic nvim setup - config is symlinked below
+  # Home Manager's neovim module handles PATH, aliases, and plugins
   programs.neovim = {
-    enable = false;  # Disabled to avoid conflicts with manual config
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
-  # Symlink nvim config file for live editing (don't manage with neovim program)
+  # Symlink nvim config file for live editing
   home.file.".config/nvim/init.lua" = {
     source = config.lib.file.mkOutOfStoreSymlink "/home/mostafa/nixos-config/dotfiles/nvim/init.lua";
   };
