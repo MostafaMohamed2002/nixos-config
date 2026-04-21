@@ -13,6 +13,7 @@
     ./modules/packages.nix
     ./modules/users.nix
     ./modules/security.nix
+    ./modules/cachix.nix
     ./modules/fonts.nix
   ];
 
