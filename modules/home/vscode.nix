@@ -1,10 +1,14 @@
 # VSCodium settings (HM programs.vscode module)
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      catppuccin.catppuccin-vsc
+    ];
     profiles.default.userSettings = {
-      "workbench.colorTheme" = "Default Light Modern";
+      "workbench.colorTheme" = "Catppuccin Macchiato";
       "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "editor.fontSize" = 13;
       "editor.lineHeight" = 22;
@@ -17,11 +21,11 @@
       "files.autoSaveDelay" = 1000;
       "git.autofetch" = true;
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nixd"; # Points to the nixd binary in your path
+      "nix.serverPath" = "nixd";
       "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {
-            "command" = ["alajandra"]; # Optional: requires pkgs.nixfmt-rfc-style
+            "command" = [ "alajandra" ];
           };
         };
       };
