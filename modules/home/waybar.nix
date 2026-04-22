@@ -22,6 +22,16 @@
     esac
   '';
 in {
+  systemd.user.services.waybar = {
+    Service = {
+      Restart = "on-failure";
+      RestartSec = 2;
+    };
+    Unit = {
+      StartLimitIntervalSec = 0;
+    };
+  };
+
   programs.waybar = {
     enable = true;
     systemd = {

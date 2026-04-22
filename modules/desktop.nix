@@ -27,6 +27,9 @@
   # Polkit
   security.polkit.enable = true;
 
+  # Storage and removable media
+  services.udisks2.enable = true;
+
   # Enable CUPS to print documents
   services.printing.enable = true;
 

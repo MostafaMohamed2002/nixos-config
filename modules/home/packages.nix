@@ -41,6 +41,11 @@
     rofi
     hyprlock
 
+    # Storage helpers
+    gvfs
+    libmtp
+    jmtpfs
+
     # File manager
     nautilus
     nautilus-python
