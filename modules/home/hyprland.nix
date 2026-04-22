@@ -145,7 +145,7 @@ in {
       bind = $mainMod, Q, killactive,
       bind = $mainMod, F, exec, nautilus
       bind = $mainMod, A, exec, rofi -show drun
-
+      bind = $mainMod, L, exec, hyprlock
 
       bind = $mainMod, P, exec, grim -g "$(slurp)" - | wl-copy
 
