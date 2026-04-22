@@ -1,5 +1,27 @@
 # Waybar configuration with Catppuccin Macchiato
-{pkgs, ...}: {
+{pkgs, ...}: let
+  powerMenu = pkgs.writeShellScriptBin "power-menu" ''
+    choice=$(printf "%s\n" lock logout reboot shutdown | rofi -dmenu -i -p "Power")
+
+    case "$choice" in
+      lock)
+        hyprlock
+        ;;
+      logout)
+        hyprctl dispatch exit
+        ;;
+      reboot)
+        systemctl reboot
+        ;;
+      shutdown)
+        systemctl poweroff
+        ;;
+      *)
+        exit 0
+        ;;
+    esac
+  '';
+in {
   programs.waybar = {
     enable = true;
     systemd = {
@@ -30,6 +52,7 @@
           "hyprland/language"
           "clock"
           "tray"
+          "custom/power"
         ];
 
         "hyprland/workspaces" = {
@@ -50,6 +73,12 @@
           tooltip = false;
           on-click = "rofi -show drun";
           align = 0.5;
+        };
+
+        "custom/power" = {
+          format = "";
+          tooltip = false;
+          on-click = "${powerMenu}/bin/power-menu";
         };
 
         "hyprland/language" = {
@@ -117,7 +146,8 @@
         color: #cad3f5;
       }
 
-      #custom-launcher {
+      #custom-launcher,
+      #custom-power {
         background: #1e2030;
         padding: 4px 10px;
         margin: 6px 4px;
@@ -162,7 +192,8 @@
       #cpu,
       #memory,
       #tray,
-      #language {
+      #language,
+      #custom-power {
         background: #1e2030;
         padding: 4px 10px;
         margin: 6px 4px;
