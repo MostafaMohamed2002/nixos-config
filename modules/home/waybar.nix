@@ -49,6 +49,7 @@
           format = "";
           tooltip = false;
           on-click = "rofi -show drun";
+          align = 0.5;
         };
 
         "hyprland/language" = {
@@ -121,6 +122,7 @@
         padding: 4px 10px;
         margin: 6px 4px;
         border-radius: 12px;
+        min-width: 24px;
       }
 
       #workspaces {
