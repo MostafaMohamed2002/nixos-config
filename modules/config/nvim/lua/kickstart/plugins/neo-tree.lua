@@ -19,6 +19,7 @@ return {
   ---@type neotree.Config
   opts = {
     filesystem = {
+      hidden = true,
       window = {
         mappings = {
           ['\\'] = 'close_window',
