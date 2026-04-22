@@ -26,6 +26,14 @@
 
   # Polkit
   security.polkit.enable = true;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.udisks2.filesystem-mount" ||
+          action.id == "org.freedesktop.udisks2.filesystem-mount-system") {
+        return polkit.Result.YES;
+      }
+    });
+  '';
 
   # Storage and removable media
   services.udisks2.enable = true;
