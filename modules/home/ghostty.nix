@@ -6,7 +6,7 @@
     enable = true;
     settings = {
       cursor-style-blink = false;
-      font-family = "Maple Mono NF";
+      font-family = "JetBrainsMono Nerd Font";
       font-size = 13;
 
       # Catppuccin Machiato colors
@@ -17,7 +17,7 @@
       selection-background = "#3a3e53";
       selection-foreground = "#cad3f5";
       split-divider-color = "#363a4f";
-      background-opacity = 0.950000;
+      background-opacity = 1;
     };
   };
 }

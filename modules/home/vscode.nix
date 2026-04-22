@@ -5,7 +5,7 @@
     package = pkgs.vscodium;
     profiles.default.userSettings = {
       "workbench.colorTheme" = "Default Light Modern";
-      "editor.fontFamily" = "Maple Mono NF";
+      "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "editor.fontSize" = 13;
       "editor.lineHeight" = 22;
       "editor.fontLigatures" = true;
