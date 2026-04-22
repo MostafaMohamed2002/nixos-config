@@ -14,5 +14,6 @@
     ./systemd.nix
     ./vscode.nix
     ./packages.nix
+    ./theme.nix
   ];
 }
