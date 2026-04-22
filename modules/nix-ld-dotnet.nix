@@ -2,11 +2,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   dotnetRoot = "${pkgs.dotnet-sdk_10.unwrapped}/share/dotnet";
-in
-{
+in {
   programs.nix-ld.enable = true;
 
   programs.nix-ld.libraries = with pkgs; [

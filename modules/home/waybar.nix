@@ -1,8 +1,11 @@
 # Waybar configuration with Catppuccin Macchiato
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
+    systemd = {
+      enable = true;
+      target = "graphical-session.target";
+    };
     settings = {
       mainBar = {
         layer = "top";
@@ -16,7 +19,7 @@
           "hyprland/workspaces"
           "hyprland/window"
         ];
-        modules-center = [ ];
+        modules-center = [];
         modules-right = [
           "cpu"
           "memory"

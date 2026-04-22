@@ -1,7 +1,5 @@
 # Hyprland configuration with Catppuccin Macchiato
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   monitorScript = pkgs.writeShellScriptBin "hypr-monitor-watch" ''
     handle() {
       case $1 in
@@ -19,9 +17,8 @@ let
     socat - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
       | while read -r line; do handle "$line"; done
   '';
-in
-{
-  home.packages = [ pkgs.socat ];
+in {
+  home.packages = [pkgs.socat];
 
   wayland.windowManager.hyprland = {
     enable = true;

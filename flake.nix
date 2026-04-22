@@ -7,6 +7,8 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -15,6 +17,7 @@
       nixpkgs,
       home-manager,
       nix-index-database,
+      nur,
     }:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -27,6 +30,10 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.mostafa = import ./modules/home;
+            nixpkgs.overlays = [
+              nur.overlays.default
+            ];
+
           }
         ];
       };

@@ -15,6 +15,7 @@
     ./modules/fonts.nix
     ./modules/nix-ld-dotnet.nix
     ./modules/nvidia.nix
+    ./modules/laptop.nix
   ];
 
   # This value determines the NixOS release from which the default

@@ -1,13 +1,12 @@
 # GTK/Theme configuration with Catppuccin Machiato
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   gtk = {
     enable = true;
     theme = {
       name = "catppuccin-macchiato-mauve-standard";
       package = pkgs.catppuccin-gtk.override {
         variant = "macchiato";
-        accents = [ "mauve" ];
+        accents = ["mauve"];
       };
     };
     iconTheme = {

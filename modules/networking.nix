@@ -7,6 +7,9 @@
   #networking.wireless.iwd.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
 
+  #bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
   # Firewall configuration (currently unused, but available for extension)
   # networking.firewall.enable = false;
   # networking.firewall.allowedTCPPorts = [ ... ];

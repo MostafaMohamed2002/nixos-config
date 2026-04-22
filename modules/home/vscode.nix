@@ -1,6 +1,5 @@
 # VSCodium settings (HM programs.vscode module)
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -25,7 +24,7 @@
       "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {
-            "command" = [ "alajandra" ];
+            "command" = ["alajandra"];
           };
         };
       };

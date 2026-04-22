@@ -1,6 +1,5 @@
 # Rofi configuration for Hyprland with Catppuccin Macchiato
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.rofi = {
     enable = true;
     terminal = "${pkgs.ghostty}/bin/ghostty";

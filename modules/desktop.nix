@@ -1,6 +1,5 @@
 # Display manager, desktop environment, audio (pipewire), and printing
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Enable the X11 windowing system
   services.xserver.enable = true;
 

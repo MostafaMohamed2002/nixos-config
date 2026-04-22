@@ -2,7 +2,7 @@
 {...}: {
   # Sudo configuration
   security.sudo.enable = true;
-  security.sudo.wheelNeedsPassword = true;
+  security.sudo.wheelNeedsPassword = false;
 
   # Nix experimental features
   nix.settings.experimental-features = [

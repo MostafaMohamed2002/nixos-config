@@ -1,7 +1,6 @@
 # Ghostty configuration via Home Manager module
 # Catppuccin Machiato theme
-{ ... }:
-{
+{...}: {
   programs.ghostty = {
     enable = true;
     settings = {

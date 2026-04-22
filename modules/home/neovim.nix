@@ -1,6 +1,5 @@
 # Neovim configuration with Catppuccin Machiato
-{ pkgs, lib, ... }:
-{
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
