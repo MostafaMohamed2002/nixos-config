@@ -16,6 +16,7 @@
         margin-right = 0;
         spacing = 8;
         modules-left = [
+          "custom/launcher"
           "hyprland/workspaces"
           "hyprland/window"
         ];
@@ -42,6 +43,12 @@
           format = "{}";
           max-length = 40;
           separate-outputs = true;
+        };
+
+        "custom/launcher" = {
+          format = "";
+          tooltip = false;
+          on-click = "rofi -show drun";
         };
 
         "hyprland/language" = {
@@ -107,6 +114,13 @@
       window#waybar {
         background: rgba(36, 39, 58, 0.90);
         color: #cad3f5;
+      }
+
+      #custom-launcher {
+        background: #1e2030;
+        padding: 4px 10px;
+        margin: 6px 4px;
+        border-radius: 12px;
       }
 
       #workspaces {
