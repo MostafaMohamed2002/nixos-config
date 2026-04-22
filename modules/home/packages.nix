@@ -1,17 +1,29 @@
-# User-level packages (empty for now)
-{pkgs, ...}: {
+# User-level packages
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
-    nixd
+    # Formatters
+    alejandra
     nixfmt-rfc-style
+
+    # Development tools
+    nixd
+    starship
+    eza
+
+    # Development tools
+    git
     gcc
     ripgrep
-    tree-sitter
     fd
     cmake
     unzip
-    tree
 
+    # Editors
+    vim
     opencode
+
+    # Applications
     ghostty
     jetbrains.rider
   ];
