@@ -1,5 +1,6 @@
 # User-level packages
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # Formatters
     alejandra
@@ -50,5 +51,7 @@
     nautilus
     nautilus-python
     file-roller
+
+    localsend
   ];
 }
