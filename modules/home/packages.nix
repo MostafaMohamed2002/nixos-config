@@ -40,5 +40,11 @@
     nwg-look
     # Launcher
     rofi
+
+    # File manager
+    nautilus
+    nautilus-python
+    file-roller
+    udiskie
   ];
 }

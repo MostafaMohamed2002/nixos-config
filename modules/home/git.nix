@@ -11,4 +11,8 @@
       core.editor = "nvim";
     };
   };
+    programs.gh = {
+    enable = true;
+    gitCredentialHelper.enable = true;  # declaratively sets the credential helper
+  };
 }

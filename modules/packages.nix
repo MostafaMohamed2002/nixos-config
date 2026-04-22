@@ -10,6 +10,5 @@
   # System-wide packages (only essential system tools)
   environment.systemPackages = with pkgs; [
     ntfs3g # File system driver - system-wide need
-    gh # CLI that other tools might call
   ];
 }

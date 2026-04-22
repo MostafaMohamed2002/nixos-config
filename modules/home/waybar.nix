@@ -8,9 +8,9 @@
         layer = "top";
         position = "top";
         height = 32;
-        margin-top = 6;
-        margin-left = 12;
-        margin-right = 12;
+        margin-top = 0;
+        margin-left = 0;
+        margin-right = 0;
         spacing = 8;
         modules-left = [
           "hyprland/workspaces"
@@ -103,8 +103,6 @@
       window#waybar {
         background: rgba(36, 39, 58, 0.90);
         color: #cad3f5;
-        border: 2px solid rgba(73, 77, 100, 0.8);
-        margin: 6px 12px;
       }
 
       #workspaces {
