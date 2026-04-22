@@ -8,7 +8,4 @@
 
   # Set default memory sleep state to s2idle
   boot.kernelParams = ["mem_sleep_default=s2idle"];
-
-  # Enable experimental NVIDIA power management
-  hardware.nvidia.powerManagement.enable = true;
 }

@@ -10,8 +10,6 @@
     nixd
     starship
     eza
-
-    # Development tools
     git
     gcc
     ripgrep
@@ -26,5 +24,21 @@
     # Applications
     ghostty
     jetbrains.rider
+
+    # Hyprland essentials
+    waybar
+    swww
+    grim
+    slurp
+    wl-clipboard
+    pamixer
+    playerctl
+    light
+    pavucontrol
+    blueman
+    mpv
+    nwg-look
+    # Launcher
+    rofi
   ];
 }

@@ -16,5 +16,8 @@
     ./packages.nix
     ./theme.nix
     ./dunst.nix
+    ./rofi.nix
+    ./waybar.nix
+    ./hyprland.nix
   ];
 }
