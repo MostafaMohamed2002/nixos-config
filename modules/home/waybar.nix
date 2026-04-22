@@ -67,6 +67,7 @@
           format-ethernet = "ETH";
           format-disconnected = "No Net";
           tooltip-format = "{ifname}: {ipaddr}";
+          on-click = "ghostty -e nmtui";
         };
 
         battery = {

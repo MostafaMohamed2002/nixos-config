@@ -11,31 +11,28 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nix-index-database,
-      nur,
-    }:
-    {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          nix-index-database.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.mostafa = import ./modules/home;
-            nixpkgs.overlays = [
-              nur.overlays.default
-            ];
-
-          }
-        ];
-      };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nix-index-database,
+    nur,
+  }: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+        nix-index-database.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.mostafa = import ./modules/home;
+          nixpkgs.overlays = [
+            nur.overlays.default
+          ];
+        }
+      ];
     };
+  };
 }

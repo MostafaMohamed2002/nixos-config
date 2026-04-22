@@ -22,7 +22,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemdIntegration = true;
+    systemd.enable = true;
     extraConfig = ''
       # Monitor
       monitor = HDMI-A-1, 1920x1080@100, 0x0, 1
@@ -114,7 +114,7 @@ in {
           bezier = easeOutExpo, 0.10, 0.94, 0.23, 0.98
           bezier = softAcDecel, 0.20, 0.20, 0.15, 1
           bezier = md2, 0.30, 0, 0.15, 1
-          
+
           bezier = OutBack, 0.28, 1.40, 0.58, 1
           bezier = easeInOutCirc, 0.78, 0, 0.15, 1
 

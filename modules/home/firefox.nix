@@ -1,6 +1,5 @@
 # Firefox configuration with GTK theme
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     policies = {
