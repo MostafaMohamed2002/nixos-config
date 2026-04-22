@@ -39,6 +39,7 @@
     nwg-look
     # Launcher
     rofi
+    hyprlock
 
     # File manager
     nautilus
