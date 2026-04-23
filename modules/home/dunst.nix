@@ -3,11 +3,12 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   services.dunst = {
     enable = true;
     iconTheme = {
-      name = "Papirus-Dark";
+      name = "Papirus-Light";
       package = pkgs.papirus-icon-theme;
     };
     settings = {
@@ -40,7 +41,7 @@
         follow = "mouse";
         font = "JetBrainsMono Nerd Font 10";
         format = "<b>%s</b>\\n%b";
-        frame_color = "#232323";
+        frame_color = "#1e66f5";
         frame_width = 1;
         offset = "15x15";
         horizontal_padding = 10;
@@ -65,16 +66,17 @@
       };
 
       urgency_critical = {
-        background = "#d64e4e";
-        foreground = "#f0e0e0";
+        background = "#eff1f5";
+        foreground = "#4c4f69";
+        frame_color = "#fe640b";
       };
       urgency_low = {
-        background = "#232323";
-        foreground = "#2596be";
+        background = "#eff1f5";
+        foreground = "#4c4f69";
       };
       urgency_normal = {
-        background = "#1e1e2a";
-        foreground = "#2596be";
+        background = "#eff1f5";
+        foreground = "#4c4f69";
       };
     };
   };

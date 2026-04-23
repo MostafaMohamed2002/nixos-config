@@ -1,5 +1,6 @@
-# Waybar configuration with Catppuccin Macchiato
-{pkgs, ...}: let
+# Waybar configuration with Catppuccin Latte
+{ pkgs, ... }:
+let
   powerMenu = pkgs.writeShellScriptBin "power-menu" ''
     choice=$(printf "%s\n" lock logout reboot shutdown | rofi -dmenu -i -p "Power")
 
@@ -21,7 +22,8 @@
         ;;
     esac
   '';
-in {
+in
+{
   systemd.user.services.waybar = {
     Service = {
       Restart = "on-failure";
@@ -52,7 +54,7 @@ in {
           "hyprland/workspaces"
           "hyprland/window"
         ];
-        modules-center = [];
+        modules-center = [ ];
         modules-right = [
           "cpu"
           "memory"
@@ -152,13 +154,13 @@ in {
       }
 
       window#waybar {
-        background: rgba(36, 39, 58, 0.90);
-        color: #cad3f5;
+        background: rgba(230, 233, 239, 0.90);
+        color: #4c4f69;
       }
 
       #custom-launcher,
       #custom-power {
-        background: #1e2030;
+        background: #e6e9ef;
         padding: 4px 10px;
         margin: 6px 4px;
         border-radius: 12px;
@@ -166,30 +168,30 @@ in {
       }
 
       #workspaces {
-        background: #1e2030;
+        background: #e6e9ef;
         padding: 4px 8px;
         margin: 6px 6px;
         border-radius: 12px;
       }
 
       #workspaces button {
-        color: #b8c0e0;
+        color: #5c5f77;
         padding: 2px 8px;
         margin: 0 4px;
       }
 
       #workspaces button.active {
-        background: #c6a0f6;
-        color: #181926;
+        background: #8839ef;
+        color: #eff1f5;
       }
 
       #workspaces button.urgent {
-        background: #ed8796;
-        color: #181926;
+        background: #d20f39;
+        color: #eff1f5;
       }
 
       #window {
-        background: #1e2030;
+        background: #e6e9ef;
         padding: 4px 8px;
         margin: 6px 6px;
         border-radius: 12px;
@@ -204,25 +206,25 @@ in {
       #tray,
       #language,
       #custom-power {
-        background: #1e2030;
+        background: #e6e9ef;
         padding: 4px 10px;
         margin: 6px 4px;
       }
 
       #pulseaudio.muted {
-        color: #f5a97f;
+        color: #fe640b;
       }
 
       #network.disconnected {
-        color: #ed8796;
+        color: #d20f39;
       }
 
       #battery.warning {
-        color: #f5a97f;
+        color: #fe640b;
       }
 
       #battery.critical {
-        color: #ed8796;
+        color: #d20f39;
       }
     '';
   };

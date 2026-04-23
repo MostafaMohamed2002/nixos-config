@@ -1,6 +1,7 @@
 # Ghostty configuration via Home Manager module
-# Catppuccin Machiato theme
-{...}: {
+# Catppuccin Latte theme
+{ ... }:
+{
   programs.ghostty = {
     enable = true;
     settings = {
@@ -8,14 +9,14 @@
       font-family = "JetBrainsMono Nerd Font";
       font-size = 13;
 
-      # Catppuccin Machiato colors
-      background = "#24273a";
-      foreground = "#cad3f5";
-      cursor-color = "#f4dbd6";
-      cursor-text = "#181926";
-      selection-background = "#3a3e53";
-      selection-foreground = "#cad3f5";
-      split-divider-color = "#363a4f";
+      # Catppuccin Latte colors
+      background = "#eff1f5";
+      foreground = "#4c4f69";
+      cursor-color = "#dc8a78";
+      cursor-text = "#eff1f5";
+      selection-background = "#d8dae1";
+      selection-foreground = "#4c4f69";
+      split-divider-color = "#ccd0da";
       background-opacity = 1;
     };
   };

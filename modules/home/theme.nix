@@ -1,16 +1,17 @@
-# GTK/Theme configuration with Catppuccin Machiato
-{pkgs, ...}: {
+# GTK/Theme configuration with Catppuccin Latte
+{ pkgs, ... }:
+{
   gtk = {
     enable = true;
     theme = {
-      name = "catppuccin-macchiato-mauve-standard";
+      name = "catppuccin-latte-rosewater-standard";
       package = pkgs.catppuccin-gtk.override {
-        variant = "macchiato";
-        accents = ["mauve"];
+        variant = "latte";
+        accents = [ "rosewater" ];
       };
     };
     iconTheme = {
-      name = "Papirus-Dark";
+      name = "Papirus-Light";
       package = pkgs.papirus-icon-theme;
     };
     cursorTheme = {

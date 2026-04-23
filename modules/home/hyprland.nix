@@ -1,5 +1,6 @@
-# Hyprland configuration with Catppuccin Macchiato
-{pkgs, ...}: let
+# Hyprland configuration with Catppuccin Latte
+{ pkgs, ... }:
+let
   monitorScript = pkgs.writeShellScriptBin "hypr-monitor-watch" ''
     handle() {
       case $1 in
@@ -17,8 +18,9 @@
     socat - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
       | while read -r line; do handle "$line"; done
   '';
-in {
-  home.packages = [pkgs.socat];
+in
+{
+  home.packages = [ pkgs.socat ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -42,29 +44,29 @@ in {
       exec-once = ${monitorScript}/bin/hypr-monitor-watch
 
 
-      # Catppuccin Macchiato colors
-      $rosewater = rgba(f4dbd6ee)
-      $flamingo = rgba(f0c6c6ee)
-      $pink = rgba(f5bde6ee)
-      $mauve = rgba(c6a0f6ee)
-      $red = rgba(ed8796ee)
-      $maroon = rgba(ee99a0ee)
-      $peach = rgba(f5a97fee)
-      $yellow = rgba(eed49fee)
-      $green = rgba(a6da95ee)
-      $teal = rgba(8bd5caee)
-      $sky = rgba(91d7e3ee)
-      $sapphire = rgba(7dc4e4ee)
-      $blue = rgba(8aadf4ee)
-      $lavender = rgba(b7bdf8ee)
-      $text = rgba(cad3f5ee)
-      $subtext1 = rgba(b8c0e0ee)
-      $surface0 = rgba(363a4fee)
-      $surface1 = rgba(494d64ee)
-      $surface2 = rgba(5b6078ee)
-      $base = rgba(24273aee)
-      $mantle = rgba(1e2030ee)
-      $crust = rgba(181926ee)
+      # Catppuccin Latte colors
+      $rosewater = rgba(dc8a78ee)
+      $flamingo = rgba(dd7878ee)
+      $pink = rgba(ea76cbee)
+      $mauve = rgba(8839efee)
+      $red = rgba(d20f39ee)
+      $maroon = rgba(e64553ee)
+      $peach = rgba(fe640bee)
+      $yellow = rgba(df8e1dee)
+      $green = rgba(40a02bee)
+      $teal = rgba(179299ee)
+      $sky = rgba(04a5e5ee)
+      $sapphire = rgba(209fb5ee)
+      $blue = rgba(1e66f5ee)
+      $lavender = rgba(7287fdee)
+      $text = rgba(4c4f69ee)
+      $subtext1 = rgba(5c5f77ee)
+      $surface0 = rgba(ccd0daee)
+      $surface1 = rgba(bcc0ccee)
+      $surface2 = rgba(acb0beee)
+      $base = rgba(eff1f5ee)
+      $mantle = rgba(e6e9efee)
+      $crust = rgba(dce0e8ee)
 
       input {
         kb_layout = us,ara

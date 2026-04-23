@@ -1,5 +1,6 @@
 # VSCodium settings (HM programs.vscode module)
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -8,7 +9,7 @@
         catppuccin.catppuccin-vsc
       ];
       userSettings = {
-        "workbench.colorTheme" = "Catppuccin Macchiato";
+        "workbench.colorTheme" = "Catppuccin Latte";
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
         "editor.fontSize" = 13;
         "editor.lineHeight" = 22;
@@ -25,7 +26,7 @@
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {
-              "command" = ["alajandra"];
+              "command" = [ "alajandra" ];
             };
           };
         };

@@ -3,8 +3,6 @@
   programs.firefox = {
     enable = true;
     policies = {
-      # Use system colors from GTK theme
-      LegacyColorSchemeUseSystem = true;
     };
 
     profiles.default = {
@@ -13,7 +11,6 @@
         ublock-origin
         clearurls
         sponsorblock
-        darkreader
         h264ify
         df-youtube
       ];
@@ -29,11 +26,11 @@
         "beacon.enabled" = false;
         "browser.safebrowsing.downloads.remote.enabled" = false;
         "network.IDN_show_punycode" = true;
-        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+        "extensions.activeThemeID" = "firefox-compact-light@mozilla.org";
         "app.shield.optoutstudies.enabled" = false;
         "dom.security.https_only_mode_ever_enabled" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "browser.toolbars.bookmarks.visibility" = "never";
+        "browser.toolbars.bookmarks.visibility" = "newtab";
         "geo.enabled" = false;
 
         # Disable telemetry
