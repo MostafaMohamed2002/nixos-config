@@ -1,6 +1,5 @@
 # VSCodium settings (HM programs.vscode module)
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -11,7 +10,7 @@
       userSettings = {
         "workbench.colorTheme" = "Catppuccin Latte";
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
-        "editor.fontSize" = 13;
+        "editor.fontSize" = 14;
         "editor.lineHeight" = 22;
         "editor.fontLigatures" = true;
         "editor.tabSize" = 2;
@@ -23,10 +22,11 @@
         "git.autofetch" = true;
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
+        "nix.formatterPath" = "alejandra";
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {
-              "command" = [ "alajandra" ];
+              "command" = ["alejandra"];
             };
           };
         };

@@ -1,13 +1,12 @@
 # GTK/Theme configuration with Catppuccin Latte
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   gtk = {
     enable = true;
     theme = {
       name = "catppuccin-latte-rosewater-standard";
       package = pkgs.catppuccin-gtk.override {
         variant = "latte";
-        accents = [ "rosewater" ];
+        accents = ["rosewater"];
       };
     };
     iconTheme = {

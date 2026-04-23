@@ -1,7 +1,6 @@
 # Ghostty configuration via Home Manager module
 # Catppuccin Latte theme
-{ ... }:
-{
+{...}: {
   programs.ghostty = {
     enable = true;
     settings = {

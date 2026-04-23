@@ -1,6 +1,5 @@
 # Hostname, NetworkManager, iwd wireless backend, and firewall configuration
-{ ... }:
-{
+{...}: {
   networking.hostName = "nixos";
 
   # Enable networking

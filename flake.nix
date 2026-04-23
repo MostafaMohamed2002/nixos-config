@@ -9,6 +9,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -17,6 +19,8 @@
     home-manager,
     nix-index-database,
     nur,
+    sops-nix,
+    ...
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -28,9 +32,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.mostafa = import ./modules/home;
-          nixpkgs.overlays = [
-            nur.overlays.default
-          ];
+          nixpkgs.overlays = [nur.overlays.default];
         }
       ];
     };

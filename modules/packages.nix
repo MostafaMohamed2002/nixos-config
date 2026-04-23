@@ -1,6 +1,5 @@
 # System-wide packages (non-font tools only)
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Install firefox (enables Home Manager to manage it)
   programs.firefox.enable = true;
 
