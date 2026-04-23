@@ -1,5 +1,6 @@
 # Waybar configuration with Catppuccin Latte
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   powerMenu = pkgs.writeShellScriptBin "power-menu" ''
     choice=$(printf "%s\n" lock logout reboot shutdown | rofi -dmenu -i -p "Power")
 
@@ -21,7 +22,8 @@
         ;;
     esac
   '';
-in {
+in
+{
   systemd.user.services.waybar = {
     Service = {
       Restart = "on-failure";
@@ -52,7 +54,7 @@ in {
           "hyprland/workspaces"
           "hyprland/window"
         ];
-        modules-center = [];
+        modules-center = [ ];
         modules-right = [
           "cpu"
           "memory"
@@ -73,8 +75,8 @@ in {
         };
 
         "hyprland/window" = {
-          format = "{}";
-          max-length = 40;
+          format = "{class}: {title}";
+          max-length = 50;
           separate-outputs = true;
         };
 
