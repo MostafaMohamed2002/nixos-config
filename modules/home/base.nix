@@ -1,5 +1,6 @@
 # Base Home Manager identity and state version
-{...}: {
+{ lib, ... }:
+{
   home.username = "mostafa";
   home.homeDirectory = "/home/mostafa";
   home.stateVersion = "25.11";
@@ -23,7 +24,7 @@
     CLUTTER_BACKEND = "wayland";
 
     # Qt theming
-    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
 
     # Fix blurry Electron apps
