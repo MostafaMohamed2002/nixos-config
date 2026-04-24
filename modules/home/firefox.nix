@@ -1,8 +1,19 @@
 # Firefox configuration with GTK theme
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.firefox = {
     enable = true;
     policies = {
+    };
+
+    extraConfig = ''
+      // Enable Wayland support
+      user_pref("widget.wayland.use-opaque-region", true);
+    '';
+
+    environment = {
+      MOZ_ENABLE_WAYLAND = "1";
+      EGL_PLATFORM = "wayland";
     };
 
     profiles.default = {
