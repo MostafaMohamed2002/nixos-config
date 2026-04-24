@@ -1,6 +1,10 @@
 # Firefox configuration with GTK theme
 { pkgs, ... }:
 {
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+  };
+
   programs.firefox = {
     enable = true;
     policies = {
@@ -10,11 +14,6 @@
       // Enable Wayland support
       user_pref("widget.wayland.use-opaque-region", true);
     '';
-
-    environment = {
-      MOZ_ENABLE_WAYLAND = "1";
-      EGL_PLATFORM = "wayland";
-    };
 
     profiles.default = {
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
