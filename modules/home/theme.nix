@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   gtk = {
     enable = true;
 
@@ -7,7 +6,7 @@
       name = "catppuccin-latte-rosewater-standard";
       package = pkgs.catppuccin-gtk.override {
         variant = "latte";
-        accents = [ "rosewater" ];
+        accents = ["rosewater"];
       };
     };
 

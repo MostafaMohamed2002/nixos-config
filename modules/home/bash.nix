@@ -1,6 +1,5 @@
 # Bash configuration
-{ lib, ... }:
-{
+{lib, ...}: {
   programs.bash = {
     enable = true;
     shellAliases = {
