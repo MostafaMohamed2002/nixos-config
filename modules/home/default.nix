@@ -1,5 +1,6 @@
 # Home Manager module imports (mostafa)
-{...}: {
+{ ... }:
+{
   imports = [
     ./base.nix
     ./git.nix
@@ -17,6 +18,7 @@
     ./dunst.nix
     ./rofi.nix
     ./hyprland.nix
+    ./hyprlock.nix
     ./waybar.nix
   ];
 }
