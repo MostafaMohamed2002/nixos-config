@@ -7,7 +7,7 @@
       ll = "eza -lah --icons --git --group";
       la = "eza -a --icons --git --group";
       l = "eza -lh --icons --git --group";
-      lt = "eza --tree --level=2 --icons --git --group";
+      lt = "eza --icons --tree --group-directories-first";
       lg = "eza --tree --level=3 --icons --git --group";
 
       g = "git";
