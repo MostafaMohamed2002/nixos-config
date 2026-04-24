@@ -23,6 +23,9 @@
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
         "nix.formatterPath" = "alejandra";
+        "editor.formatOnType" = "true";
+        "editor.formatOnSave" = "true";
+        "editor.formatOnPaste" = "true";
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {
