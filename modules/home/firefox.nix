@@ -10,11 +10,6 @@
     policies = {
     };
 
-    extraConfig = ''
-      // Enable Wayland support
-      user_pref("widget.wayland.use-opaque-region", true);
-    '';
-
     profiles.default = {
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         decentraleyes
