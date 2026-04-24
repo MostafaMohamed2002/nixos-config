@@ -1,5 +1,6 @@
 # Home Manager module imports (mostafa)
-{...}: {
+{ ... }:
+{
   imports = [
     ./base.nix
     ./git.nix
@@ -7,6 +8,7 @@
     ./ghostty.nix
     ./mimeapps.nix
     ./xdg-user-dirs.nix
+    ./xdg-portal.nix
     ./firefox.nix
     ./htop.nix
     ./bash.nix

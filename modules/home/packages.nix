@@ -15,10 +15,12 @@
     fd
     cmake
     unzip
+    sops
 
     # Editors
     vim
     opencode
+    claude-code
 
     # Applications
     ghostty

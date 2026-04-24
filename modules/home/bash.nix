@@ -39,6 +39,9 @@
       export MANPAGER="less -R"
       export EZA_ICONS_AUTO=1
     '';
+    initExtra = ''
+      [ -f "$HOME/.local/share/secrets/env" ] && source "$HOME/.local/share/secrets/env"
+    '';
   };
 
   programs.starship = {

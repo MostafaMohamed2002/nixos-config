@@ -16,31 +16,33 @@
       ];
 
       settings = {
-        "browser.send_pings" = false;
         "browser.urlbar.speculativeConnect.enabled" = false;
-        "dom.event.clipboardevents.enabled" = true;
-        "media.navigator.enabled" = false;
-        "network.cookie.cookieBehavior" = 1;
-        "network.http.referer.XOriginPolicy" = 2;
-        "network.http.referer.XOriginTrimmingPolicy" = 2;
-        "beacon.enabled" = false;
-        "browser.safebrowsing.downloads.remote.enabled" = false;
-        "network.IDN_show_punycode" = true;
-        "extensions.activeThemeID" = "firefox-compact-light@mozilla.org";
-        "app.shield.optoutstudies.enabled" = false;
-        "dom.security.https_only_mode_ever_enabled" = true;
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "browser.toolbars.bookmarks.visibility" = "newtab";
-        "geo.enabled" = false;
+
+        # May break websites
+        # "browser.send_pings" = false;
+        # "dom.event.clipboardevents.enabled" = true;
+        # "media.navigator.enabled" = false;
+        # "network.cookie.cookieBehavior" = 1;
+        # "network.http.referer.XOriginPolicy" = 2;
+        # "network.http.referer.XOriginTrimmingPolicy" = 2;
+        # "beacon.enabled" = false;
+        # "browser.safebrowsing.downloads.remote.enabled" = false;
+        # "network.IDN_show_punycode" = true;
+        # "extensions.activeThemeID" = "firefox-compact-light@mozilla.org";
+        # "app.shield.optoutstudies.enabled" = false;
+        # "dom.security.https_only_mode_ever_enabled" = true;
+        # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        # "browser.toolbars.bookmarks.visibility" = "newtab";
+        # "geo.enabled" = false;
 
         # Disable telemetry
-        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-        "browser.ping-centre.telemetry" = false;
-        "browser.tabs.crashReporting.sendReport" = false;
-        "devtools.onboarding.telemetry.logged" = false;
-        "toolkit.telemetry.enabled" = false;
-        "toolkit.telemetry.unified" = false;
-        "toolkit.telemetry.server" = "";
+        # "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+        # "browser.ping-centre.telemetry" = false;
+        # "browser.tabs.crashReporting.sendReport" = false;
+        # "devtools.onboarding.telemetry.logged" = false;
+        # "toolkit.telemetry.enabled" = false;
+        # "toolkit.telemetry.unified" = false;
+        # "toolkit.telemetry.server" = "";
 
         # Disable Pocket
         "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
@@ -60,21 +62,19 @@
         "security.ssl.require_safe_negotiation" = true;
 
         # Extra
-        "identity.fxaccounts.enabled" = false;
-        "browser.search.suggest.enabled" = false;
-        "browser.urlbar.shortcuts.bookmarks" = false;
-        "browser.urlbar.shortcuts.history" = false;
-        "browser.urlbar.shortcuts.tabs" = false;
-        "browser.urlbar.suggest.bookmark" = false;
-        "browser.urlbar.suggest.engines" = false;
-        "browser.urlbar.suggest.history" = false;
-        "browser.urlbar.suggest.openpage" = false;
-        "browser.urlbar.suggest.topsites" = false;
-        "browser.uidensity" = 1;
-        "media.autoplay.enabled" = false;
-        "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
-        "privacy.firstparty.isolate" = true;
-        "network.http.sendRefererHeader" = 0;
+        # "identity.fxaccounts.enabled" = false;
+        # "browser.search.suggest.enabled" = false;
+        # "browser.urlbar.shortcuts.bookmarks" = false;
+        # "browser.urlbar.shortcuts.history" = false;
+        # "browser.urlbar.shortcuts.tabs" = false;
+        # "browser.urlbar.suggest.bookmark" = false;
+        # "browser.urlbar.suggest.engines" = false;
+        # "browser.urlbar.suggest.history" = false;
+        # "browser.urlbar.suggest.openpage" = false;
+        # "browser.urlbar.suggest.topsites" = false;
+        # "browser.uidensity" = 1;
+        # "media.autoplay.enabled" = false;
+        # "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
       };
 
       userChrome = ''
@@ -88,8 +88,8 @@
         }
 
         .tab-background {
-          border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important; /* Connected */
-          margin-block: 1px 0 !important; /* Connected */
+          border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important;
+          margin-block: 1px 0 !important;
         }
 
         #scrollbutton-up,
@@ -108,7 +108,6 @@
           border-bottom-color: transparent !important;
         }
 
-        /* Container color bar visibility */
         .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
           margin: 0px max(calc(var(--user-tab-rounding) - 3px), 0px) !important;
         }
