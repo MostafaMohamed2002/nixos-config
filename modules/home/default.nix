@@ -19,5 +19,6 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./waybar.nix
+    ./imv.nix
   ];
 }
