@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   services.dunst = {
     enable = true;
     iconTheme = {
@@ -66,16 +67,16 @@
 
       urgency_critical = {
         background = "#eff1f5";
-        foreground = "#4c4f69";
+        foreground = "#000000";
         frame_color = "#fe640b";
       };
       urgency_low = {
         background = "#eff1f5";
-        foreground = "#4c4f69";
+        foreground = "#000000";
       };
       urgency_normal = {
         background = "#eff1f5";
-        foreground = "#4c4f69";
+        foreground = "#000000";
       };
     };
   };

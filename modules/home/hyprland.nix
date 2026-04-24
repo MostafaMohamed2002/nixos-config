@@ -1,5 +1,6 @@
 # Hyprland configuration with Catppuccin Latte
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   monitorScript = pkgs.writeShellScriptBin "hypr-monitor-watch" ''
     handle() {
       case $1 in
@@ -17,8 +18,9 @@
     socat - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
       | while read -r line; do handle "$line"; done
   '';
-in {
-  home.packages = [pkgs.socat];
+in
+{
+  home.packages = [ pkgs.socat ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -57,8 +59,8 @@ in {
       $sapphire = rgba(209fb5ee)
       $blue = rgba(1e66f5ee)
       $lavender = rgba(7287fdee)
-      $text = rgba(4c4f69ee)
-      $subtext1 = rgba(5c5f77ee)
+       $text = rgba(000000ff)
+       $subtext1 = rgba(000000ff)
       $surface0 = rgba(ccd0daee)
       $surface1 = rgba(bcc0ccee)
       $surface2 = rgba(acb0beee)

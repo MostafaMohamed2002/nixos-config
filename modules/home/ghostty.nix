@@ -1,6 +1,7 @@
 # Ghostty configuration via Home Manager module
 # Catppuccin Latte theme
-{...}: {
+{ ... }:
+{
   programs.ghostty = {
     enable = true;
     settings = {
@@ -10,11 +11,11 @@
 
       # Catppuccin Latte colors
       background = "#eff1f5";
-      foreground = "#4c4f69";
+      foreground = "#000000";
       cursor-color = "#dc8a78";
-      cursor-text = "#eff1f5";
+      cursor-text = "#000000";
       selection-background = "#d8dae1";
-      selection-foreground = "#4c4f69";
+      selection-foreground = "#000000";
       split-divider-color = "#ccd0da";
       background-opacity = 1;
     };

@@ -155,7 +155,7 @@ in
 
       window#waybar {
         background: rgba(230, 233, 239, 0.90);
-        color: #4c4f69;
+        color: #000000;
       }
 
       #custom-launcher,
@@ -175,19 +175,19 @@ in
       }
 
       #workspaces button {
-        color: #5c5f77;
+        color: #000000;
         padding: 2px 8px;
         margin: 0 4px;
       }
 
       #workspaces button.active {
         background: #8839ef;
-        color: #eff1f5;
+        color: #000000;
       }
 
       #workspaces button.urgent {
         background: #d20f39;
-        color: #eff1f5;
+        color: #000000;
       }
 
       #window {
@@ -212,19 +212,19 @@ in
       }
 
       #pulseaudio.muted {
-        color: #fe640b;
+        color: #000000;
       }
 
       #network.disconnected {
-        color: #d20f39;
+        color: #000000;
       }
 
       #battery.warning {
-        color: #fe640b;
+        color: #000000;
       }
 
       #battery.critical {
-        color: #d20f39;
+        color: #000000;
       }
     '';
   };
