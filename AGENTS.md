@@ -12,122 +12,111 @@ nixos-config/
 ├── modules/
 │   ├── desktop.nix              # Display manager, Pipewire, printing
 │   ├── boot.nix                 # Boot configuration
-│   ├── locale.nix               # Locale settings
-│   ├── networking.nix           # Network configuration
 │   ├── packages.nix             # System packages
-│   ├── users.nix                # User configuration
-│   ├── security.nix             # Security settings
-│   ├── cachix.nix               # Cachix configuration
-│   ├── fonts.nix                # Font configuration
-│   ├── nvidia.nix               # NVIDIA driver setup
-│   ├── nix-ld-dotnet.nix        # .NET runtime configuration
 │   └── home/                    # Home Manager modules
 │       ├── default.nix          # Home Manager imports
-│       ├── base.nix             # Base home configuration
 │       ├── packages.nix         # User packages
-│       ├── bash.nix             # Bash configuration
-│       ├── git.nix              # Git configuration
-│       ├── neovim.nix           # Neovim configuration
-│       ├── ghostty.nix          # Ghostty terminal
-│       ├── hyprland.nix         # Hyprland (Wayland) window manager
-│       ├── waybar.nix           # Waybar status bar
-│       ├── rofi.nix             # Rofi launcher
-│       ├── dunst.nix            # Dunst notifications
-│       ├── theme.nix            # Theme (Catppuccin)
-│       ├── firefox.nix          # Firefox configuration
-│       ├── vscode.nix           # VSCode configuration
-│       ├── htop.nix             # htop configuration
-│       ├── systemd.nix          # User systemd services
-│       ├── xdg-user-dirs.nix    # XDG user directories
-│       └── mimeapps.nix         # MIME application associations
+│       ├── i3.nix              # i3 (X11) window manager
+│       └── ...                 # Other user configurations
 ```
+
+## Core Agent Guidelines
+- **Always verify your assumptions** before proposing changes. Read relevant `.nix` files first.
+- **Do not introduce arbitrary bash scripts** into i3 or similar configs. Prefer native Nix declarative configurations or systemd user services.
+- **Check format before committing**: Always run `alejandra .` to ensure the formatting matches project standards.
 
 ## Build/Lint/Test Commands
 
 ### Evaluating Configuration
+Use evaluation commands to check syntax and structure without building:
 ```bash
 nix eval .#nixosConfigurations.nixos.config.system.build.toplevel
 nix flake show
+nix eval .#nixosConfigurations.nixos.config.home-manager.users.mostafa.home.sessionVariables
+```
+
+### Testing Single Modules
+```bash
+nix-instantiate --parse modules/desktop.nix
+nix-instantiate --parse configuration.nix
+nix-eval-strict modules/home/hyprland.nix
 ```
 
 ### Building and Switching
+Always build configuration first to check for evaluation errors:
+```bash
+sudo nixos-rebuild build --flake .#
+```
+Apply the configuration:
 ```bash
 sudo nixos-rebuild switch --flake .#
-sudo nixos-rebuild build --flake .#
+```
+Test changes temporarily (lost on reboot):
+```bash
+sudo nixos-rebuild test --flake .#
 ```
 
 ### Linting and Formatting
+Check and apply formatting:
 ```bash
 alejandra .
 alejandra --check .
 nix flake check
 ```
 
-### Testing Single Modules
-```bash
-nix eval .#nixosConfigurations.nixos.config.home-manager.users.mostafa.home.sessionVariables
-nix-instantiate --parse modules/desktop.nix
-```
-
 ## Code Style Guidelines
 
 ### File Organization
-- Each module: descriptive comment header, use NixOS/Home Manager module system (`{ config, pkgs, lib, ... }:`)
-- Group related settings together
-- Use imports to split large modules into smaller, focused files
+Each module should have a descriptive header comment and use the NixOS/Home Manager module system:
+```nix
+{ config, pkgs, lib, ... }:
+{
+  # options here
+}
+```
+Group related settings together. Use imports to split large modules into focused files.
 
 ### Naming Conventions
 - **Files**: kebab-case (e.g., `hyprland.nix`, `xdg-user-dirs.nix`)
 - **Options**: follow NixOS naming (e.g., `services.xserver.enable`)
 - **Variables**: camelCase for Nix, snake_case for shell scripts
 
-### Nix Language Style
+### Imports
+Place imports at the top of files after the header comment. Use relative paths for local modules. Order imports: NixOS modules first, then local modules.
 ```nix
+{ config, pkgs, lib, ... }:
+
 let
-  monitorScript = pkgs.writeShellScriptBin "name" ''
-    # shell code here
-  '';
+  inherit (lib) mkEnableOption;
 in
 {
-  home.packages = with pkgs; [
-    package1
-    package2
-  ];
-
-  programs.hyprland = {
-    enable = true;
-    inherit (config.some.value) field;
-  };
+  imports = [ ./modules/foo.nix ];
 }
 ```
-
-### Imports
-- Place imports at top of files after header comment
-- Use relative paths for local modules (`./modules/foo.nix`)
-- Order: NixOS modules first, then local modules
 
 ### Formatting
 - 2-space indentation
 - Lines under 80 characters when practical
 - Trailing commas for better diffs (alejandra handles this)
 - Blank lines between logical sections
+- Use `let ... in` for local bindings before the main attribute set
 
 ### Types and Validation
 - Use `lib.mkEnableOption` for boolean options
 - Use `lib.mkOption` with `type = lib.types.*` for typed options
-- Leverage Home Manager's built-in option types
+- Use Home Manager's built-in option types
+- Use `mkIf` / `mkWhen` for conditionals (avoid `if then`)
 
 ### Error Handling
-- Use `lib.warn` or `lib.assertionMsg` for meaningful errors
-- Use `mkIf` / `mkWhen` for conditionals (not `if then`)
+- Use `lib.warn` for warnings
+- Use `lib.assertionMsg` for meaningful errors
+- Validate required options with assertions
 
-### Shell Scripts
-- Use `pkgs.writeShellScriptBin` for custom scripts
-- Prefer systemd user services over background processes
-
-### Package Management
-- Use `with pkgs;` to import packages in scope
-- Prefer flake inputs over fetchurl/fetchFromGitHub
+### Package Management & Systemd
+- Prefer flake inputs over `fetchurl`/`fetchFromGitHub`
+- Add system packages to `modules/packages.nix`
+- Add user packages to `modules/home/packages.nix`
+- **Use systemd user services** instead of background processes or delayed sleep commands in i3 config (e.g., use `services.udiskie.enable = true` instead of `exec udiskie &`).
 
 ### Home Manager Specific
 - Use `home.packages` for user packages
@@ -135,34 +124,15 @@ in
 - Use `home.file` for single file configurations
 - Use `home.sessionVariables` for environment variables
 
-## Editor Setup
-
-This project uses:
-- **alejandra** - The Nix formatter (included in user packages)
-- **nixfmt-rfc-style** - Alternative formatter
-- **nixd** - Nix language server
-
-Neovim config is in `modules/config/nvim/` with Catppuccin theme, Neo-tree, and nvim-web-devicons.
-
 ## Common Tasks
 
 ### Adding a New Package
 1. Add to `modules/home/packages.nix` (user) or `modules/packages.nix` (system)
 2. Run `alejandra .` to format
+3. Build the configuration `sudo nixos-rebuild build --flake .#`
 
-### Adding a New Home Manager Module
-1. Create new file in `modules/home/`
-2. Import it in `modules/home/default.nix`
-3. Add configuration
-
-### Adding a New System Module
-1. Create new file in `modules/`
-2. Import it in `configuration.nix`
-3. Add configuration
-
-### Testing Changes
-```bash
-nix-instantiate --parse configuration.nix
-nix eval .#nixosConfigurations.nixos.config.system.build.toplevel --dry-run
-sudo nixos-rebuild build --flake .#
-```
+### Adding a New Module
+1. Create new file in `modules/` or `modules/home/`
+2. Import it in `configuration.nix` or `modules/home/default.nix`
+3. Add configuration options
+4. Format with `alejandra .`

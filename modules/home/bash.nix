@@ -21,8 +21,8 @@
       gpl = "git pull";
       gs = "git status -sb";
 
-      nrs = "sudo nixos-rebuild switch";
-      nrb = "nixos-rebuild build";
+      nrs = "nh os switch";
+      nrb = "nh os build";
       nfu = "nix flake update";
       nfc = "nix flake check";
 
@@ -33,15 +33,51 @@
 
       code = "codium";
       config = "cd /home/mostafa/nixos-config/ && code .";
+
+      cat = "bat";
+      cd = "z";
     };
+
     bashrcExtra = ''
-      export EDITOR=nvim
       export MANPAGER="less -R"
       export EZA_ICONS_AUTO=1
     '';
+
     initExtra = ''
+      # SECURITY: Currently sources secrets from a world-readable location.
+      # FIX NEEDED: Use sops-nix or systemd credentials instead.
+      # - sops-nix: Add flake input and import in configuration.nix, then use:
+      #   users.users.mostafa.initialEnvironment = (import secrets.nix { ... }).env;
+      # - systemd credentials: Create a service that writes to /run/secrets/myapp/env
+      #   then source from there (owned by root, mode 0600)
+      # For now, points to a file that should be protected by other means.
       [ -f "$HOME/.local/share/secrets/env" ] && source "$HOME/.local/share/secrets/env"
     '';
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Catppuccin Latte";
+    };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   programs.starship = {
@@ -55,110 +91,136 @@
         "\n"
         "$character"
       ];
+
       character = {
         success_symbol = "[❯](bold green) ";
         error_symbol = "[❯](bold red) ";
         vimcmd_symbol = "[❮](subtext1) ";
       };
+
       directory = {
         truncation_length = 3;
         format = "[$path]($style)[$read_only]($read_only_style) ";
         style = "bold lavender";
         read_only = " 󰌾";
       };
+
       git_branch = {
         symbol = " ";
         format = "[$symbol$branch]($style) ";
         style = "bold mauve";
       };
+
       git_status = {
         format = "$all_status$ahead_behind ";
         style = "bold red";
       };
+
       python = {
         symbol = " ";
         style = "yellow";
       };
+
       nodejs = {
         symbol = "℻ ";
         style = "green";
       };
+
       rust = {
         symbol = "󱘗 ";
         style = "maroon";
       };
+
       golang = {
         symbol = " ";
         style = "sky";
       };
+
       nix_shell = {
         symbol = " ";
         style = "sky";
       };
+
       docker_context = {
         symbol = " ";
         style = "sky";
       };
+
       bun = {
         symbol = " ";
         style = "pink";
       };
+
       ruby = {
         symbol = " ";
         style = "red";
       };
+
       java = {
         symbol = " ";
         style = "peach";
       };
+
       kotlin = {
         symbol = " ";
         style = "yellow";
       };
+
       helm = {
         symbol = " ";
         style = "sky";
       };
+
       kubernetes = {
         symbol = "󱃾 ";
         style = "blue";
       };
+
       terraform = {
-        symbol = "�.terraform ";
+        symbol = "Terraform ";
         style = "lavender";
       };
+
       aws = {
         symbol = "󰘦 ";
         style = "yellow";
       };
+
       cmake = {
         symbol = "󰌾 ";
         style = "blue";
       };
+
       elixir = {
         symbol = " ";
         style = "mauve";
       };
+
       erlang = {
         symbol = "󱟡 ";
         style = "red";
       };
+
       crystal = {
         symbol = "󍡕 ";
         style = "white";
       };
+
       lua = {
         symbol = "󰢱 ";
         style = "blue";
       };
+
       c = {
         symbol = "󰙱 ";
         style = "blue";
       };
+
       scala = {
         symbol = "󜚩 ";
         style = "red";
       };
+
       swift = {
         symbol = "󰛥 ";
         style = "peach";

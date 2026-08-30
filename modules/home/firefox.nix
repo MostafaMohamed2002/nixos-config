@@ -1,6 +1,5 @@
 # Firefox configuration with GTK theme
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
   };

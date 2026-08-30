@@ -1,11 +1,10 @@
 # Home Manager module imports (mostafa)
-{ ... }:
-{
+{...}: {
   imports = [
     ./base.nix
     ./git.nix
     ./neovim.nix
-    ./ghostty.nix
+    ./kitty.nix
     ./mimeapps.nix
     ./xdg-user-dirs.nix
     ./xdg-portal.nix
@@ -18,9 +17,10 @@
     ./theme.nix
     ./dunst.nix
     ./rofi.nix
-    ./hyprland.nix
-    ./hyprlock.nix
-    ./waybar.nix
+    ./i3.nix
+    ./picom.nix
+    ./i3status.nix
     ./imv.nix
+    ./opencode.nix
   ];
 }

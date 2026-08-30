@@ -1,11 +1,16 @@
 # User-level packages
-{pkgs, ...}: {
+{
+  pkgs,
+  input,
+  ...
+}: {
   home.packages = with pkgs; [
     # Formatters
     alejandra
     nixfmt-rfc-style
 
     # Development tools
+    nh
     nixd
     starship
     eza
@@ -16,22 +21,21 @@
     cmake
     unzip
     sops
-
+    zip
+    nodejs
+    bun
+    xrandr
+    arandr
     # Editors
     vim
-    opencode
     claude-code
 
     # Applications
-    ghostty
+    kitty
     jetbrains.rider
 
-    # Hyprland essentials
-    waybar
-    swww
-    grim
-    slurp
-    wl-clipboard
+    # X11 essentials
+    rofi
     pamixer
     playerctl
     light
@@ -39,9 +43,13 @@
     blueman
     mpv
     nwg-look
-    # Launcher
-    rofi
-    hyprlock
+    picom
+
+    # Terminal productivity
+    fzf
+    bat
+    zoxide
+    direnv
 
     # Storage helpers
     gvfs
@@ -52,7 +60,10 @@
     nautilus
     nautilus-python
     file-roller
+    google-chrome
 
     localsend
   ];
+
+  services.network-manager-applet.enable = true;
 }

@@ -11,11 +11,6 @@
   ];
 
   # Nix garbage collection and store optimization
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
   nix.settings.auto-optimise-store = true; # deduplicates store via hardlinks
 
   # OpenSSH daemon (currently disabled, but available for extension)

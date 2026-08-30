@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+  ],
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-32a4ba58-a76b-4885-a7c3-20a95416a5a8"
+      },
+      "enabled": true
+    },
+    "nixos": {
+      "type": "local",
+      "command": [
+        "nix",
+        "run",
+        "github:utensils/mcp-nixos",
+        "--"
+      ],
+      "enabled": true
+    }
+  }
+}

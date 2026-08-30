@@ -2,7 +2,7 @@
 {pkgs, ...}: {
   programs.rofi = {
     enable = true;
-    terminal = "${pkgs.ghostty}/bin/ghostty";
+    terminal = "${pkgs.kitty}/bin/kitty";
     theme = ./rofi-theme.rasi;
   };
 }

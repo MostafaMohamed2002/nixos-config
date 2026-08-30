@@ -1,28 +1,77 @@
 # Display manager, desktop environment, audio (pipewire), and printing
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Enable the X11 windowing system
   services.xserver.enable = true;
 
-  # Display manager
-  services.displayManager.ly.enable = true;
+  # Display manager (sddm works better with nvidia)
+  services.displayManager.sddm.enable = true;
 
-  # Hyprland (Wayland)
-  programs.hyprland = {
+  # Set X video driver to nvidia
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  # Autorandr for display configuration
+  services.autorandr = {
     enable = true;
-    xwayland.enable = true;
+    defaultTarget = "default";
+    profiles = {
+      default = {
+        fingerprint = {
+          "DP-0" = "vendor-product-model-serial";
+        };
+        config = {
+          "DP-0" = {
+            enable = true;
+            scale = {
+              method = "factor";
+              x = 1;
+              y = 1;
+            };
+            rate = "100";
+          };
+        };
+      };
+    };
   };
 
-  # GNOME disabled (using Hyprland)
-  services.desktopManager.gnome.enable = false;
+  # Configure keymap in X11 (also in locale.nix for user sessions - kept here for SDDM)
+  services.xserver.xkb = {
+    layout = "us,ara";
+    variant = "";
+    options = "grp:win_space_toggle";
+  };
 
-  # Portals
+  # Systemd override for display manager to wait for tty
+  systemd.services.display-manager.after = [
+    "systemd-user-sessions.service"
+    "multi-user.target"
+  ];
+  systemd.services.display-manager.wants = [
+    "systemd-user-sessions.service"
+  ];
+
+  # i3 window manager (X11)
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      i3status-rust
+      i3lock
+      xss-lock
+    ];
+  };
+
+  # Portals (GTK for X11)
   xdg.portal = {
     enable = true;
+    xdgOpenUsePortal = true;
+    config.common.default = "*";
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
   };
+
+  # Enable dconf for home-manager compatibility
+  programs.dconf.enable = true;
 
   # Polkit
   security.polkit.enable = true;
@@ -49,10 +98,5 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # Uncomment if you want to use JACK applications
-    # jack.enable = true;
   };
-
-  # Enable touchpad support (enabled by default in most desktopManager)
-  # services.xserver.libinput.enable = true;
 }

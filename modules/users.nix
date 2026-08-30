@@ -7,6 +7,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "tty"
+      "video"
     ];
   };
 }
